@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#252525</color>
+    <color name="colorPrimaryDark">#1e1e1e</color>
+    <color name="colorAccent">#c00</color>
+    <color name="colorBackground">#f0f0f0</color>
+    <color name="colorButtonNormal">#0066d0</color>
+    <color name="loginBackgroundColor">#e0e1e3</color>
+    <color name="textColor">#000</color>
+
+    <color name="pintColor">#82ff9999</color>
+    <color name="aquamarineColor">#8399ffcc</color>
+    <color name="lightBlueColor">#8399ccff</color>
+</resources>

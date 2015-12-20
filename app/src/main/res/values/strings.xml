@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">MyShows Student App</string>
+
+    <string name="email">Email</string>
+    <string name="prompt_password">Пароль</string>
+    <string name="action_sign_in">Войти</string>
+    <string name="error_invalid_email">Неправильный email адрес</string>
+    <string name="error_field_required">Это поле нужно заполнить</string>
+    <string name="loading_msg">Загрузка…</string>
+    <string name="no_internet_connection">Нет соединения с интернетом</string>
+    <string name="auth_error">Имя пользователя или пароль не подошли</string>
+    <string name="social_auth_error">Не прошла авторизация через соц. сеть</string>
+    <string name="login_via">Войти с помощью</string>
+    <string name="retry">Повторить</string>
+    <string name="are_you_sure_internet_is_on">Вы уверенны, что включили интернет?</string>
+    <string name="action_exit">Выйти</string>
+    <string name="error">Произошла ошибка</string>
+
+    <string name="wasted_time">Потраченное время</string>
+    <string name="watched_hours">Всего просмотренно</string>
+    <string name="remaining_hours">Осталось</string>
+    <string name="watched_episodes">Просмотренно эпизодов</string>
+    <string name="remaining_episodes">Осталось эпизодов</string>
+    <string name="total_episodes">Всего эпизодов</string>
+    <string name="total_days">Всего дней</string>
+    <string name="total_hours">Всего часов</string>
+    <string name="remaining_days">Осталось дней</string>
+    <string name="watched_days">Просмотренно дней</string>
+    <string name="empty_msg">Здесь пусто</string>
+    <string name="episodes">эпизодов</string>
+    <string name="hours">Часов</string>
+    <string name="days">Дней</string>
+</resources>
