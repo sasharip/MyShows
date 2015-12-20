@@ -4,6 +4,8 @@ import android.accounts.Account;
 import android.accounts.AccountManager;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.MainThread;
 import android.support.annotation.Nullable;
@@ -24,6 +26,7 @@ import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
+import com.myshows.studentapp.BuildConfig;
 import com.myshows.studentapp.R;
 import com.myshows.studentapp.model.eventbus.LoginMsg;
 import com.myshows.studentapp.model.eventbus.Message;
@@ -59,6 +62,9 @@ public class LoginActivity extends AppCompatActivity {
     @Bind(R.id.password)
     EditText passwordView;
 
+    @Bind(R.id.version_name)
+    TextView versionName;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,6 +75,8 @@ public class LoginActivity extends AppCompatActivity {
         setUpPasswordView();
         registerFbCallbackManager();
         updateValuesFromBundle(savedInstanceState);
+
+        versionName.setText(BuildConfig.VERSION_NAME);
     }
 
     @Override
