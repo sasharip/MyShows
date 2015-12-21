@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.myshows.studentapp.Application;
 import com.myshows.studentapp.rest.model.Cookies;
 
 public class SplashScreen extends AppCompatActivity {
@@ -11,7 +12,7 @@ public class SplashScreen extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Cookies cookies = Cookies.getCookies();
+        Cookies cookies = Application.getCookies();
         if (cookies != null
                 && cookies.phpSessionId != null
                 && cookies.login != null

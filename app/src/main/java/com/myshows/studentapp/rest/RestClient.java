@@ -10,8 +10,8 @@ import com.myshows.studentapp.model.eventbus.Message;
 import com.myshows.studentapp.model.eventbus.MyShowsMsg;
 import com.myshows.studentapp.model.eventbus.UserProfileMsg;
 import com.myshows.studentapp.rest.deserealizers.ShowDeserializer;
+import com.myshows.studentapp.rest.interceptors.BackoffInterceptor;
 import com.myshows.studentapp.rest.interceptors.CookiesReceiverInterceptor;
-import com.myshows.studentapp.rest.interceptors.ExponentialBackoffInterceptor;
 import com.myshows.studentapp.rest.interceptors.SessionInterceptor;
 import com.myshows.studentapp.rest.model.Cookies;
 import com.myshows.studentapp.rest.services.LoginService;
@@ -86,7 +86,7 @@ public final class RestClient {
     private OkHttpClient getClient(boolean withExponentialBackoff) {
         OkHttpClient client = getClient();
         if (withExponentialBackoff) {
-            ExponentialBackoffInterceptor interceptor = new ExponentialBackoffInterceptor.Builder()
+            BackoffInterceptor interceptor = new BackoffInterceptor.Builder()
                     .setMinTime(TimeUnit.SECONDS.toMillis(3))
                     .setMaxTime(TimeUnit.SECONDS.toMillis(15))
                     .build();

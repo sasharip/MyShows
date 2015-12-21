@@ -11,7 +11,7 @@ import com.squareup.okhttp.Response;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-public class ExponentialBackoffInterceptor implements Interceptor {
+public class BackoffInterceptor implements Interceptor {
 
     public static final int BAD_REQUEST = 400;
     public static final int REQUEST_TIMEOUT = 408;
@@ -63,6 +63,7 @@ public class ExponentialBackoffInterceptor implements Interceptor {
     }
 
     public abstract class Function {
+
         private long getDelay(int retryCount) {
             long result = minTimeInMillis;
             for (int i = 0; i < retryCount; i++) {
@@ -76,6 +77,7 @@ public class ExponentialBackoffInterceptor implements Interceptor {
                                    int retryCount,
                                    long minTime, long maxTime,
                                    int growthFactor);
+
     }
 
     public class ExponentialFunction extends Function {
@@ -99,10 +101,10 @@ public class ExponentialBackoffInterceptor implements Interceptor {
     }
 
     public static final class Builder {
-        private ExponentialBackoffInterceptor interceptor;
+        private BackoffInterceptor interceptor;
 
         public Builder() {
-            interceptor = new ExponentialBackoffInterceptor();
+            interceptor = new BackoffInterceptor();
         }
 
         public Builder setGrowthFactor(@IntRange(from = 1) int growthFactor) {
@@ -130,7 +132,7 @@ public class ExponentialBackoffInterceptor implements Interceptor {
             return this;
         }
 
-        public ExponentialBackoffInterceptor build() {
+        public BackoffInterceptor build() {
             return interceptor;
         }
 
