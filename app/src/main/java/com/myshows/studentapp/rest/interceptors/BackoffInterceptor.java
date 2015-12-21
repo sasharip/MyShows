@@ -70,7 +70,7 @@ public class BackoffInterceptor implements Interceptor {
         private long getDelay(int retryNumber) {
             long result = minTimeInMillis;
             for (int i = 0; i < retryNumber; i++) {
-                functionMath(result, retryNumber,
+                result = functionMath(result, retryNumber,
                         maxRetryCount, minTimeInMillis, maxTimeInMillis, growthFactor);
                 if (result > maxTimeInMillis) return maxTimeInMillis + 1;
             }
