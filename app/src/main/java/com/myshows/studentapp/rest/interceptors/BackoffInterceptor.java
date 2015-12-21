@@ -72,7 +72,7 @@ public class BackoffInterceptor implements Interceptor {
             for (int i = 0; i < retryNumber; i++) {
                 result = functionMath(result, retryNumber,
                         maxRetryCount, minTimeInMillis, maxTimeInMillis, growthFactor);
-                if (result > maxTimeInMillis) return maxTimeInMillis + 1;
+                if (result > maxTimeInMillis) return maxTimeInMillis;
             }
             return result;
         }
