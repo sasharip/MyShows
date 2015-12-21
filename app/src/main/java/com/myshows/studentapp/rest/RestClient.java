@@ -87,8 +87,8 @@ public final class RestClient {
         OkHttpClient client = getClient();
         if (withExponentialBackoff) {
             BackoffInterceptor interceptor = new BackoffInterceptor.Builder()
-                    .setMinTime(TimeUnit.SECONDS.toMillis(3))
-                    .setMaxTime(TimeUnit.SECONDS.toMillis(15))
+                    .setMinTimeInMillis(TimeUnit.SECONDS.toMillis(3))
+                    .setMaxTimeInMillis(TimeUnit.SECONDS.toMillis(15))
                     .build();
             client.interceptors().add(interceptor);
         }

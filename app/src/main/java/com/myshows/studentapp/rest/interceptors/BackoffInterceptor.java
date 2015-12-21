@@ -29,12 +29,13 @@ public class BackoffInterceptor implements Interceptor {
             GATEWAY_TIMEOUT
     };
 
-    private int growthFactor = 10;
+    private int maxRetryCount = 3;
+    private int growthFactor = 2;
     private long minTimeInMillis = TimeUnit.SECONDS.toMillis(10);
     private long maxTimeInMillis = TimeUnit.SECONDS.toMillis(60);
     private Function function = new LinearFunction();
 
-    private int retryCount;
+    private int retryCount = 1;
 
     @Override
     public Response intercept(Chain chain) throws IOException {
@@ -64,10 +65,11 @@ public class BackoffInterceptor implements Interceptor {
 
     public abstract class Function {
 
-        private long getDelay(int retryCount) {
+        private long getDelay(int retryNumber) {
             long result = minTimeInMillis;
-            for (int i = 0; i < retryCount; i++) {
-                result += growthFactor;
+            for (int i = 0; i < retryNumber; i++) {
+                functionMath(result, retryNumber,
+                        maxRetryCount, minTimeInMillis, maxTimeInMillis, growthFactor);
                 if (result > maxTimeInMillis) return maxTimeInMillis + 1;
             }
             return result;
@@ -75,6 +77,7 @@ public class BackoffInterceptor implements Interceptor {
 
         abstract long functionMath(long result,
                                    int retryCount,
+                                   int maxRetryCount,
                                    long minTime, long maxTime,
                                    int growthFactor);
 
@@ -82,21 +85,18 @@ public class BackoffInterceptor implements Interceptor {
 
     public class ExponentialFunction extends Function {
         @Override
-        long functionMath(long result,
-                          int retryCount,
-                          long minTime, long maxTime,
-                          int growthFactor) {
+        long functionMath(long result, int retryCount, int maxRetryCount, long minTime,
+                          long maxTime, int growthFactor) {
             return result * growthFactor;
         }
     }
 
     public class LinearFunction extends Function {
         @Override
-        long functionMath(long result,
-                          int retryCount,
-                          long minTime, long maxTime,
-                          int growthFactor) {
+        long functionMath(long result, int retryCount, int maxRetryCount, long minTime,
+                          long maxTime, int growthFactor) {
             return result + growthFactor;
+
         }
     }
 
@@ -105,6 +105,11 @@ public class BackoffInterceptor implements Interceptor {
 
         public Builder() {
             interceptor = new BackoffInterceptor();
+        }
+
+        public Builder setMaxRetryCount(int maxRetryCount) {
+            interceptor.maxRetryCount = maxRetryCount;
+            return this;
         }
 
         public Builder setGrowthFactor(@IntRange(from = 1) int growthFactor) {
@@ -117,12 +122,12 @@ public class BackoffInterceptor implements Interceptor {
             return this;
         }
 
-        public Builder setMinTime(@IntRange(from = 0) long minTimeInMillis) {
+        public Builder setMinTimeInMillis(@IntRange(from = 0) long minTimeInMillis) {
             interceptor.minTimeInMillis = minTimeInMillis;
             return this;
         }
 
-        public Builder setMaxTime(@IntRange(from = 1) long maxTimeInMillis) {
+        public Builder setMaxTimeInMillis(@IntRange(from = 1) long maxTimeInMillis) {
             interceptor.maxTimeInMillis = maxTimeInMillis;
             return this;
         }
