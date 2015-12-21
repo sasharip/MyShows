@@ -40,31 +40,33 @@ public class BackoffInterceptor implements Interceptor {
     @Override
     public Response intercept(Chain chain) throws IOException {
         Response response = chain.proceed(chain.request());
-        int responseCode = response.code();
-        long delay = function.getDelay(retryCount++);
-
-        if (delay != maxTimeInMillis + 1) {
-            for (int errorCode : errorCodes) {
-                if (errorCode == responseCode) {
-                    Request newRequest = chain.request();
-                    newRequest = newRequest.newBuilder()
-                            .addHeader("Cookie", Application.getCookies().toString())
-                            .build();
-                    try {
-                        wait(delay);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
+        if (++retryCount <= maxRetryCount) {
+            long delay = function.getDelay(retryCount);
+            if (delay != maxTimeInMillis + 1) {
+                int responseCode = response.code();
+                for (int errorCode : errorCodes) {
+                    if (errorCode == responseCode) {
+                        Request newRequest = chain.request();
+                        newRequest = newRequest.newBuilder()
+                                .addHeader("Cookie", Application.getCookies().toString())
+                                .build();
+                        try {
+                            wait(delay);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        response = chain.proceed(newRequest);
+                        break;
                     }
-                    response = chain.proceed(newRequest);
-                    break;
                 }
             }
+        } else {
+            retryCount = 1;
         }
         return response;
     }
 
     public abstract class Function {
-
         private long getDelay(int retryNumber) {
             long result = minTimeInMillis;
             for (int i = 0; i < retryNumber; i++) {
