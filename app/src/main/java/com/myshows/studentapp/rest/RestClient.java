@@ -2,6 +2,7 @@ package com.myshows.studentapp.rest;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.myshows.studentapp.Application;
 import com.myshows.studentapp.model.Show;
 import com.myshows.studentapp.model.User;
 import com.myshows.studentapp.model.eventbus.LoginMsg;
@@ -9,8 +10,9 @@ import com.myshows.studentapp.model.eventbus.Message;
 import com.myshows.studentapp.model.eventbus.MyShowsMsg;
 import com.myshows.studentapp.model.eventbus.UserProfileMsg;
 import com.myshows.studentapp.rest.deserealizers.ShowDeserializer;
-import com.myshows.studentapp.rest.interceptors.CookiesInterceptor;
 import com.myshows.studentapp.rest.interceptors.CookiesReceiverInterceptor;
+import com.myshows.studentapp.rest.interceptors.ExponentialBackoffInterceptor;
+import com.myshows.studentapp.rest.interceptors.SessionInterceptor;
 import com.myshows.studentapp.rest.model.Cookies;
 import com.myshows.studentapp.rest.services.LoginService;
 import com.myshows.studentapp.rest.services.MyShowsService;
@@ -76,8 +78,20 @@ public final class RestClient {
         cookieManager.setCookiePolicy(CookiePolicy.ACCEPT_NONE);
         client.setCookieHandler(cookieManager);
 
-        client.interceptors().add(new CookiesInterceptor());
+        client.interceptors().add(new SessionInterceptor());
         client.interceptors().add(new CookiesReceiverInterceptor());
+        return client;
+    }
+
+    private OkHttpClient getClient(boolean withExponentialBackoff) {
+        OkHttpClient client = getClient();
+        if (withExponentialBackoff) {
+            ExponentialBackoffInterceptor interceptor = new ExponentialBackoffInterceptor.Builder()
+                    .setMinTime(TimeUnit.SECONDS.toMillis(3))
+                    .setMaxTime(TimeUnit.SECONDS.toMillis(15))
+                    .build();
+            client.interceptors().add(interceptor);
+        }
         return client;
     }
 
@@ -86,6 +100,15 @@ public final class RestClient {
                 .baseUrl(URL)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .client(getClient())
+                .build();
+        return retrofit.create(service);
+    }
+
+    private <T> T getRetrofitService(Gson gson, final Class<T> service, boolean withExponentialBackoff) {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(URL)
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .client(getClient(withExponentialBackoff))
                 .build();
         return retrofit.create(service);
     }
@@ -107,7 +130,7 @@ public final class RestClient {
             public void onResponse(Response<ResponseBody> response, Retrofit retrofit) {
                 LoginMsg msg = new LoginMsg(Message.AUTH_ERROR, isSocial);
                 if (response.code() == 200) {
-                    Cookies cookies = Cookies.getCookies();
+                    Cookies cookies = Application.getCookies();
                     if (cookies != null
                             && cookies.phpSessionId != null
                             && cookies.login != null
@@ -126,7 +149,7 @@ public final class RestClient {
     }
 
     public void loadUserData() {
-        UserProfileService service = getRetrofitService(getGson(), UserProfileService.class);
+        UserProfileService service = getRetrofitService(getGson(), UserProfileService.class, true);
         service.getUserData().enqueue(new Callback<User>() {
             @Override
             public void onResponse(Response<User> response, Retrofit retrofit) {

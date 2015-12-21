@@ -1,5 +1,6 @@
 package com.myshows.studentapp.rest.interceptors;
 
+import com.myshows.studentapp.Application;
 import com.myshows.studentapp.rest.model.Cookies;
 import com.squareup.okhttp.Interceptor;
 import com.squareup.okhttp.Response;
@@ -13,7 +14,7 @@ public class CookiesReceiverInterceptor implements Interceptor {
     public Response intercept(Chain chain) throws IOException {
         Response originalResponse = chain.proceed(chain.request());
 
-        Cookies receivedCookies = Cookies.getCookies();
+        Cookies receivedCookies = Application.getCookies();
         if (receivedCookies == null) receivedCookies = new Cookies();
 
         List<String> cookieHeaders = originalResponse.headers("Set-Cookie");
@@ -37,7 +38,7 @@ public class CookiesReceiverInterceptor implements Interceptor {
                     }
                 }
             }
-            receivedCookies.save();
+            Application.saveCookies(receivedCookies);
         }
         return originalResponse;
     }

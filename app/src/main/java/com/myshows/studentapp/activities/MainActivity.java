@@ -9,11 +9,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.myshows.studentapp.Application;
 import com.myshows.studentapp.R;
 import com.myshows.studentapp.fragments.MainFragment;
 import com.myshows.studentapp.fragments.NoInternetFragment;
 import com.myshows.studentapp.fragments.NoInternetFragment.INFragment;
-import com.myshows.studentapp.rest.model.Cookies;
 import com.myshows.studentapp.utils.Connectivity;
 
 import butterknife.Bind;
@@ -88,8 +88,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.action_exit) {
-            Cookies cookies = Cookies.getCookies();
-            if (cookies != null) cookies.delete();
+            Application.deleteCookies();
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
             finish();
