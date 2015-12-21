@@ -78,23 +78,23 @@ public class BackoffInterceptor implements Interceptor {
         abstract long functionMath(long result,
                                    int retryCount,
                                    int maxRetryCount,
-                                   long minTime, long maxTime,
+                                   long minTimeInMillis, long maxTimeInMillis,
                                    int growthFactor);
 
     }
 
     public class ExponentialFunction extends Function {
         @Override
-        long functionMath(long result, int retryCount, int maxRetryCount, long minTime,
-                          long maxTime, int growthFactor) {
+        long functionMath(long result, int retryCount, int maxRetryCount, long minTimeInMillis,
+                          long maxTimeInMillis, int growthFactor) {
             return result * growthFactor;
         }
     }
 
     public class LinearFunction extends Function {
         @Override
-        long functionMath(long result, int retryCount, int maxRetryCount, long minTime,
-                          long maxTime, int growthFactor) {
+        long functionMath(long result, int retryCount, int maxRetryCount, long minTimeInMillis,
+                          long maxTimeInMillis, int growthFactor) {
             return result + growthFactor;
 
         }
