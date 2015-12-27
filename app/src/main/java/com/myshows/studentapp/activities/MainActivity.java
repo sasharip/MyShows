@@ -14,6 +14,7 @@ import com.myshows.studentapp.R;
 import com.myshows.studentapp.fragments.MainFragment;
 import com.myshows.studentapp.fragments.NoInternetFragment;
 import com.myshows.studentapp.fragments.NoInternetFragment.INFragment;
+import com.myshows.studentapp.tests.SimpleTests;
 import com.myshows.studentapp.utils.Connectivity;
 
 import butterknife.Bind;
@@ -25,6 +26,10 @@ public class MainActivity extends AppCompatActivity {
     Toolbar toolbar;
 
     private INFragment iNFragment;
+
+    public MainActivity(Class<SimpleTests> simpleTestsClass) {
+
+    }
 
     public INFragment getInternetNeededFragment() {
         return iNFragment;

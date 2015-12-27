@@ -8,6 +8,10 @@ public class SimpleTests extends MainActivity{
 
     private SimpleTests msimpleTests;
     private TextView mTextView;
-    
+
+    public SimpleTests (){
+        super(SimpleTests.class);
+
+    }
 
 }
