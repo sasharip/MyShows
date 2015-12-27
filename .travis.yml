@@ -5,6 +5,9 @@ android:
   components:
     - build-tools-19.0.1
 
+before_install:
+     - chmod +x gradlew
+
 script:
     - echo "Travis branch is $TRAVIS_BRANCH"
     - echo "Travis branch is in pull request $TRAVIS_PULL+REQUEST"
