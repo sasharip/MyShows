@@ -9,6 +9,7 @@
 # Add default JVM options here. You can also use JAVA_OPTS and GRADLE_OPTS to pass JVM options to this script.
 DEFAULT_JVM_OPTS=""
 
+
 APP_NAME="Gradle"
 APP_BASE_NAME=`basename "$0"`
 
@@ -159,4 +160,3 @@ JVM_OPTS[${#JVM_OPTS[*]}]="-Dorg.gradle.appname=$APP_BASE_NAME"
 
 exec "$JAVACMD" "${JVM_OPTS[@]}" -classpath "$CLASSPATH" org.gradle.wrapper.GradleWrapperMain "$@"
 
-chmod +x gradlew
