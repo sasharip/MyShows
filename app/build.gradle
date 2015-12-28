@@ -21,6 +21,15 @@ def getVersionName = { ->
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.2"
+    lintOptions {
+
+        checkReleaseBuilds false
+
+        // Or, if you prefer, you can continue to check for errors in release builds,
+
+        // but continue the build even when errors are found:
+
+    }
 
     defaultConfig {
         applicationId "com.myshows.studentapp"
