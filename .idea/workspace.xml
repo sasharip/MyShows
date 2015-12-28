@@ -102,8 +102,8 @@
       <file leaf-file-name=".travis.yml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.travis.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.42553192">
-              <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+            <state vertical-scroll-proportion="0.7606383">
+              <caret line="27" column="32" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -2578,7 +2578,13 @@
       <option name="project" value="LOCAL" />
       <updated>1451261473138</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="trying to fix comp error">
+      <created>1451262104261</created>
+      <option name="number" value="00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1451262104261</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TodoView">
@@ -3037,8 +3043,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.travis.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42553192">
-          <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
+        <state vertical-scroll-proportion="0.7606383">
+          <caret line="27" column="32" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
           <folding />
         </state>
       </provider>
