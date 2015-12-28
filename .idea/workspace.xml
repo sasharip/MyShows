@@ -20,14 +20,8 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="471c862e-d6ca-4ae9-9a3e-6bf38f9ed1d2" name="Default" comment="trying to fix comp error">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/tests/ProjectClassTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/hamcrest_core_1_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/junit_4_12.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/myshows/studentapp/tests/SimpleTests.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/myshows/studentapp/utils/EmailValidator.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/myshows/studentapp/utils/EmailValidator.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
+    <list default="true" id="471c862e-d6ca-4ae9-9a3e-6bf38f9ed1d2" name="Default" comment="test trying">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/tests/ProjectClassTest.java" afterPath="$PROJECT_DIR$/app/src/main/java/tests/ProjectClassTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="MyShows.iws" />
@@ -95,11 +89,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProjectClassTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ProjectClassTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/tests/ProjectClassTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.47340426">
+              <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -107,10 +101,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ShowDeserializer.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ShowDeserializer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/myshows/studentapp/rest/deserealizers/ShowDeserializer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.86170214">
+            <state vertical-scroll-proportion="0.0">
               <caret line="27" column="23" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
               <folding />
             </state>
@@ -163,10 +157,10 @@
             <state vertical-scroll-proportion="0.0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
-                <marker date="1451345594731" expanded="true" signature="206973:206990" placeholder="..." />
-                <marker date="1451345594731" expanded="true" signature="206973:207008" placeholder="..." />
-                <marker date="1451345594731" expanded="true" signature="206973:207021" placeholder="..." />
-                <marker date="1451345594731" expanded="true" signature="206973:207036" placeholder="..." />
+                <marker date="1451345736815" expanded="true" signature="208267:208284" placeholder="..." />
+                <marker date="1451345736815" expanded="true" signature="208267:208302" placeholder="..." />
+                <marker date="1451345736815" expanded="true" signature="208267:208315" placeholder="..." />
+                <marker date="1451345736815" expanded="true" signature="208267:208330" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -2748,7 +2742,13 @@
       <option name="project" value="LOCAL" />
       <updated>1451264386147</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="test trying">
+      <created>1451345644618</created>
+      <option name="number" value="00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1451345644618</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TodoView">
@@ -2820,7 +2820,8 @@
     <MESSAGE value="Travis support" />
     <MESSAGE value="gradlew error fix&#10;" />
     <MESSAGE value="trying to fix comp error" />
-    <option name="LAST_COMMIT_MESSAGE" value="trying to fix comp error" />
+    <MESSAGE value="test trying" />
+    <option name="LAST_COMMIT_MESSAGE" value="test trying" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -3072,6 +3073,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3154,10 +3156,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1451345594731" expanded="true" signature="206973:206990" placeholder="..." />
-            <marker date="1451345594731" expanded="true" signature="206973:207008" placeholder="..." />
-            <marker date="1451345594731" expanded="true" signature="206973:207021" placeholder="..." />
-            <marker date="1451345594731" expanded="true" signature="206973:207036" placeholder="..." />
+            <marker date="1451345736815" expanded="true" signature="208267:208284" placeholder="..." />
+            <marker date="1451345736815" expanded="true" signature="208267:208302" placeholder="..." />
+            <marker date="1451345736815" expanded="true" signature="208267:208315" placeholder="..." />
+            <marker date="1451345736815" expanded="true" signature="208267:208330" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -3202,21 +3204,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/tests/ProjectClassTest.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/myshows/studentapp/rest/deserealizers/ShowDeserializer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <caret line="27" column="23" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/myshows/studentapp/rest/deserealizers/ShowDeserializer.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tests/ProjectClassTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.86170214">
-          <caret line="27" column="23" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
-          <folding />
+        <state vertical-scroll-proportion="0.47340426">
+          <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
