@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply plugin: 'pmd'
+apply plugin: 'checkstyle'
 
 def getVersionName = { ->
     try {
