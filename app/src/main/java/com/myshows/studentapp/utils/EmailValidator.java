@@ -8,4 +8,5 @@ public class EmailValidator {
         return Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
 
+
 }
