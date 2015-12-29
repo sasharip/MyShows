@@ -25,4 +25,6 @@ script:
     - echo "Travis branch is $TRAVIS_BRANCH"
     - echo "Travis branch is in pull request $TRAVIS_PULL+REQUEST"
     - ./gradlew assemble
-    - ./gradlew build connectedCheck
+    - ./gradlew build connectedCheck'
+    - ./gradlew pmdMain
+    - ./gradlew checkstyleMain
