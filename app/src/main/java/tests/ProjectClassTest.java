@@ -8,14 +8,19 @@ import org.junit.Test;
 
 
 public class ProjectClassTest extends TestCase {
-    @Test
+    @Test //testing valid email
     public void testEmailValidator() throws Exception{
-        EmailValidator emw1 =new EmailValidator();
-        assertEquals("valid",emw1.isValid("vattghern777@gmail.com"));
-        assertEquals("valid",emw1.isValid("demonOS@gadkasd.com"));
-        assertEquals("not valid",emw1.isValid("dasdsaasda"));
+        boolean ans = true;
+        boolean val;
+        String email = "vattghern777@gmail.com";
+        val = EmailValidator.isValid(email);
+
+        assertEquals(ans,val);
 
     }
+
+
+
 
 
 
